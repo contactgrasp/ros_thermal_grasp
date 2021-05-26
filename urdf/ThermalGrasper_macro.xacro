@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <!-- include macros for M-10iA and the eef model -->
+  <xacro:include filename="$(find kuka_lbr_iiwa_support)/urdf/lbr_iiwa_14_r820_macro.xacro"/>
+  <xacro:include filename="$(find ros_thermal_grasp)/urdf/HumanHand20DOF_macro.xacro" />
+
+  <!-- create the robot + eef combo itself as a macro -->
+  <xacro:macro name="ThermalGrasper" params="prefix">
+
+    <!-- instantiate M-10iA and eef model -->
+    <xacro:kuka_lbr_iiwa_14_r820 prefix="${prefix}robot_" />
+    <xacro:HumanHand20DOF        prefix="${prefix}hand_" />
+
+    <!-- attach eef to M-10iA model -->
+    <!-- Note: this assumes that the 'my_eef' macro defines a 'base_link'
+         link which is the start of it's kinematic chain (if any) -->
+    <joint name="${prefix}robot_tool0-${prefix}base_link" type="fixed">
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+      <parent link="${prefix}robot_tool0" />
+      <child link="${prefix}hand_base_link" />
+    </joint>
+
+  </xacro:macro>
+</robot>

@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<robot name="HumanHand20DOF" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find ros_thermal_grasp)/urdf/HumanHand20DOF_macro.xacro"/>
+  <xacro:HumanHand20DOF prefix=""/>
+</robot>

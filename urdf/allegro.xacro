@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<robot name="allegro" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find ros_thermal_grasp)/urdf/allegro_macro.xacro"/>
+  <xacro:allegro prefix=""/>
+</robot>

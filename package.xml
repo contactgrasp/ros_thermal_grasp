@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ros_thermal_grasp</name>
+  <version>0.1.0</version>
+  <description>
+    <p>
+      ROS utils for human-inspired functional grasping
+    </p>
+  </description>
+  <author>Samarth Brahmbhatt (Georgia Tech)</author>
+  <maintainer email="samarth.robo@gatech.edu">Samarth Brahmbhatt (Georgia Tech)</maintainer>
+
+  <license>Apache 2.0</license>
+
+  <url type="repository">https://bitbucket.org/samarthb/ros_thermal_grasp</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <test_depend>roslaunch</test_depend>
+
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <export>
+    <architecture_independent/>
+  </export>
+</package>

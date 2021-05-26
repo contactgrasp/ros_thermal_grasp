@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <!-- include macros for KUKA and Allegro model -->
+  <xacro:include filename="$(find kuka_lbr_iiwa_support)/urdf/lbr_iiwa_14_r820_macro.xacro"/>
+  <xacro:include filename="$(find ros_thermal_grasp)/urdf/allegro_macro.xacro" />
+
+  <!-- create the robot + allegro combo itself as a macro -->
+  <xacro:macro name="ThermalRobot" params="prefix">
+
+    <!-- instantiate M-10iA and eef model -->
+    <xacro:kuka_lbr_iiwa_14_r820 prefix="${prefix}robot_" />
+    <xacro:allegro               prefix="${prefix}hand_" />
+
+    <joint name="${prefix}robot_tool0-${prefix}base_link" type="fixed">
+      <origin xyz="0 0 0.1" rpy="0 0 ${pi}" />
+      <parent link="${prefix}robot_tool0" />
+      <child link="${prefix}hand_palm_link" />
+    </joint>
+
+  </xacro:macro>
+</robot>
